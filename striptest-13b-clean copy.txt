@@ -1,2 +1,0 @@
-Plain text line
-	Tabbed text line  

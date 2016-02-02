@@ -1,6 +1,8 @@
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.util.Objects;
+import java.util.Scanner;
 
 /**
  * Created by taky2 on 2/1/16.
@@ -16,39 +18,78 @@ public class Verifier {
         File file1;
         File file2;
 
+        Scanner console = new Scanner(System.in);
+        System.out.println("Check for files automatically? [y/N]\n" +
+                           "\n[  format:  striptest-13a-clean.txt      ]" +
+                           "\n[           striptest-13a-processed.txt  ]");
+        String response = console.nextLine();
+        response = response.toLowerCase();
 
-        originalFile = "striptest-13a-processed.txt";
-        outputFile = "striptest-13a-clean.txt";
+        if ( (response.equals("y")) || (response.equals("yes")) ) {
 
-        file1 = new File(originalFile);
-        file2 = new File(outputFile);
+            originalFile = "striptest-13a-processed.txt";
+            outputFile = "striptest-13a-clean.txt";
 
-        System.out.println("\nResults for 13a files:");
-        compareTwoFiles(file1, file2);
+            file1 = new File(originalFile);
+            file2 = new File(outputFile);
 
-
-
-        originalFile = "striptest-13b-processed.txt";
-        outputFile = "striptest-13b-clean.txt";
-
-        file1 = new File(originalFile);
-        file2 = new File(outputFile);
-
-        System.out.println("\nResults for 13b files:");
-        compareTwoFiles(file1, file2);
+            System.out.println("\nResults for 13a files:");
+            compareTwoFiles(file1, file2);
 
 
 
-        originalFile = "striptest-13c-processed.txt";
-        outputFile = "striptest-13c-clean.txt";
+            originalFile = "striptest-13b-processed.txt";
+            outputFile = "striptest-13b-clean.txt";
 
-        file1 = new File(originalFile);
-        file2 = new File(outputFile);
+            file1 = new File(originalFile);
+            file2 = new File(outputFile);
 
-        System.out.println("\nResults for 13c files:");
-        compareTwoFiles(file1, file2);
+            System.out.println("\nResults for 13b files:");
+            compareTwoFiles(file1, file2);
 
-        System.out.println("\nTesting finished");
+
+
+            originalFile = "striptest-13c-processed.txt";
+            outputFile = "striptest-13c-clean.txt";
+
+            file1 = new File(originalFile);
+            file2 = new File(outputFile);
+
+            System.out.println("\nResults for 13c files:");
+            compareTwoFiles(file1, file2);
+
+            System.out.println("\nTesting finished");
+        }//end automatic file testing case
+
+        else if ( (response.equals("no") ) ||  (response.equals("n") ) ) { //ask for filenames
+            System.out.print("Full filename of clean test-key file: ");
+            originalFile = console.nextLine();
+            System.out.print("Full filename of output file to test: ");
+            outputFile = console.nextLine();
+            System.out.println();
+            file1 = new File(originalFile);
+            file2 = new File(outputFile);
+            compareTwoFiles(file1, file2);
+        }
+
+        else {
+            System.out.println("Error: unknown response.");
+        }
+
+
+
+
+
+
+
+        //Scanner input1 = new Scanner(new File(filename1));
+        //Scanner input2 = new Scanner(new File(filename2));
+        //String s1 = input1.next();
+        //String s2 = input2.next();
+
+
+
+
     }
 
 
