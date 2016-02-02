@@ -75,23 +75,7 @@ public class Verifier {
             System.out.println("Error: unknown response.");
         }
 
-
-
-
-
-
-
-        //Scanner input1 = new Scanner(new File(filename1));
-        //Scanner input2 = new Scanner(new File(filename2));
-        //String s1 = input1.next();
-        //String s2 = input2.next();
-
-
-
-
-    }
-
-
+    }//end main
 
     private static void compareTwoFiles(File file1, File file2) {
         try {
